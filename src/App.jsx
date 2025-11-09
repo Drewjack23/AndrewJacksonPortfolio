@@ -2,6 +2,8 @@ import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Linkedin, Mail, Download, MapPin, Briefcase, Phone, Camera } from "lucide-react";
 import headshot from "./assets/IMG_7953.jpeg";
+import resumeFile from "./assets/Andrew-Jackson-Resume.pdf";
+
 
 // ——————————————————————————————————————————
 // Personalize these values
@@ -11,8 +13,9 @@ const data = {
   role: "Software Engineer • AI & Systems Integration",
   location: "Huntsville, AL",
   blurb:
-    "I build reliable, human‑centered software. Recent work spans AI assistants, defense systems tooling, and data‑driven apps.",
-  resumeUrl: "/src/assets/Andrew Jackson - Resume (V.2)",
+    "I engineer intelligent systems that serve people — from AI assistants to defense-grade software and predictive, data-driven applications.",
+  resumeUrl: resumeFile,
+
   socials: [
     { label: "LinkedIn", url: "https://www.linkedin.com/in/andrew-jackson-059134297/", icon: Linkedin },
     { label: "Email", url: "mailto:andrewth848@gmail.com", icon: Mail },
@@ -264,8 +267,17 @@ export default function PortfolioSite() {
             variants={fade(0)}
             className="inline-flex items-center gap-2 text-sm uppercase tracking-widest text-slate-500 dark:text-slate-400"
           >
-            <MapPin className="h-4 w-4" /> {data.location}
+            <MapPin className="h-4 w-4" />
+            <a
+              href="https://www.google.com/maps/place/Huntsville,+AL"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline decoration-dotted hover:text-blue-500 transition-colors"
+            >
+              {data.location}
+            </a>
           </motion.p>
+
 
           <motion.h1
             initial="hidden"
