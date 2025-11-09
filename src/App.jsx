@@ -12,12 +12,11 @@ const data = {
   location: "Huntsville, AL",
   blurb:
     "I build reliable, human‑centered software. Recent work spans AI assistants, defense systems tooling, and data‑driven apps.",
-  resumeUrl: "file:///C:/Users/Drewj/OneDrive/Desktop/AndrewJacksonPortfolio/src/assets/Andrew%20Jackson%20-%20Resume%20(V.2).pdf",
+  resumeUrl: "/src/assets/Andrew Jackson - Resume (V.2)",
   socials: [
     { label: "LinkedIn", url: "https://www.linkedin.com/in/andrew-jackson-059134297/", icon: Linkedin },
     { label: "Email", url: "mailto:andrewth848@gmail.com", icon: Mail },
     { label: "Call", url: "tel:2566043089", icon: Phone },
-    { label: "Photography", url: "https://www.instagram.com/drewjack_flickzz/", icon: Camera },
   ],
   highlights: [
     "Northrop Grumman — missile defense tools (RHEL, networking)",
@@ -59,7 +58,7 @@ const data = {
     },
 
   ],
-experience: [
+  experience: [
     {
       org: "Northrop Grumman",
       role: "Part-Time Software Developer",
@@ -108,7 +107,37 @@ experience: [
       ],
     },
   ],
+
+  awards: [
+    {
+      title: "Jacobs Frontier Research Scholar",
+      description: "Selected as a NASA MSFC scholar supporting research innovation and STEM advancement.",
+      year: "2024",
+    },
+    {
+      title: "NASA Retiree Scholarship",
+      description: "Recognized for academic excellence and future contribution potential in aerospace + technology.",
+      year: "2024",
+    },
+    {
+      title: "FICO Analytics Challenge — National 4th Place",
+      description: "Placed top 4 nationwide for advanced credit fraud prediction modeling.",
+      year: "2025",
+    },
+    {
+      title: "BEA Ambassador President Leadership Award",
+      description: "Awarded for outstanding student leadership, service impact, and student-body advocacy.",
+      year: "2025",
+    },
+    {
+      title: "NSC Space Club Scholarship",
+      description: "Awarded for academic contribution, aerospace leadership, and dedication to STEM advancement.",
+      year: "2024",
+    },
+  ],
 };
+
+
 
 // Small helpers
 const fade = (delay = 0) => ({
@@ -145,6 +174,7 @@ const NavLink = ({ href, label }) => (
 
 export default function PortfolioSite() {
   const [theme, setTheme] = useState("dark");
+  const [currentAwardIndex, setCurrentAwardIndex] = useState(0);
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
   const FORMSPREE_ENDPOINT = "https://formspree.io/f/mzzvygrr"; // <-- replace with your Formspree form ID
 
@@ -200,6 +230,7 @@ export default function PortfolioSite() {
           <nav className="hidden md:flex items-center gap-1 text-sm">
             <NavLink href="#about" label="About" />
             <NavLink href="#experience" label="Experience" />
+            <NavLink href="#awards" label="Awards" />
             <NavLink href="#projects" label="Projects" />
             <NavLink href="#skills" label="Skills" />
             <NavLink href="#contact" label="Contact" />
@@ -357,6 +388,58 @@ export default function PortfolioSite() {
           ))}
         </div>
       </Section>
+
+      {/* Awards */}
+      <Section id="awards" title="Awards & Honors">
+        <div className="relative">
+          <motion.div className="overflow-hidden">
+            <div
+              className="flex gap-6 transition-transform duration-500"
+              style={{ transform: `translateX(-${currentAwardIndex * 33.333}%)` }}
+            >
+              {data.awards.map((award, i) => (
+                <div
+                  key={i}
+                  className="min-w-[33.333%] rounded-2xl border p-6 bg-gradient-to-br from-black via-slate-800 to-slate-900"
+                >
+                  <h3 className="text-lg font-semibold leading-tight">{award.title}</h3>
+                  <p className="mt-2 text-sm text-slate-300">{award.description}</p>
+                  <p className="mt-3 text-xs font-medium text-slate-400">Year: {award.year}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Navigation */}
+          <div className="flex justify-between mt-6">
+            <button
+              onClick={() => setCurrentAwardIndex((i) => Math.max(i - 1, 0))}
+              className="rounded-xl border px-4 py-2 text-sm hover:bg-white/10"
+            >
+              Prev
+            </button>
+            <button
+              onClick={() => setCurrentAwardIndex((i) => Math.min(i + 1, data.awards.length - 3))}
+              className="rounded-xl border px-4 py-2 text-sm hover:bg-white/10"
+            >
+              Next
+            </button>
+          </div>
+
+          {/* Dots */}
+          <div className="flex justify-center gap-2 mt-4">
+            {Array.from({ length: data.awards.length - 2 }).map((_, idx) => (
+              <div
+                key={idx}
+                onClick={() => setCurrentAwardIndex(idx)}
+                className={`h-2 w-2 rounded-full cursor-pointer ${idx === currentAwardIndex ? "bg-white" : "bg-white/30"
+                  }`}
+              />
+            ))}
+          </div>
+        </div>
+      </Section>
+
 
       {/* Projects */}
       <Section id="projects" title="Projects">
