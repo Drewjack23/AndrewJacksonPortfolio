@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Linkedin, Mail, Download, MapPin, Briefcase, Phone, ExternalLink } from "lucide-react";
-import headshot from "./assets/Headshot.jpeg";
+import headshot from "./assets/IMG_7953.jpeg";
 import resumeFile from "./assets/Andrew-Jackson-Resume.pdf";
 
 
@@ -13,7 +13,7 @@ const data = {
   role: "Software Engineer • AI & Systems Integration",
   location: "Huntsville, AL",
   blurb:
-    "I'm Andrew Jackson, a student studying cybersecurity and technology. I enjoy working with AI, machine learning, and software development to solve real-world problems. Through internships and hands-on projects, I've gained experience in cybersecurity, data analytics, and engineering while continuing to learn and grow in the field.",
+    "I engineer intelligent systems that serve people — from AI assistants to defense-grade software and predictive, data-driven applications.",
   resumeUrl: resumeFile,
 
   socials: [
@@ -24,16 +24,43 @@ const data = {
   highlights: [
     "Northrop Grumman — missile defense tools (RHEL, networking)",
     "NASA MSFC — additive manufacturing + automation",
-    "FICO Analytics Challenge — 4th nationally (fraud AI)",
+    "FICO Analytics Challenge — 3rd nationally (fraud AI)",
   ],
+  
   skills: [
-    "Python", "Java", "Web development", "Tailwind", "PostgreSQL", "Linux/RHEL", "Docker", "Azure",
-    "Machine Learning", "Data Analytics", "CustomTkinter", "SolidWorks", "NXCAD", 'Python', 'C++',
-    'Web Development (HTML)', 'Microsoft Office 365', 'Adobe Photoshop', 'SolidWorks', 'AutoCAD',
-    'NXCAD', 'Machine Learning', 'Data Analytics', 'CCNA', 'Cybersecurity Fundamentals', 'Linux/Unix/Kali',
-    'Cloud Computing', 'CAD Modeling (SolidWorks, NXCAD, AutoCAD)', '3D Modeling', 'Finite Element Analysis (FEA)',
-    'Prototype Fabrication', 'Mechanical Design', 'Systems Integration', 'Technical Documentation', 'Engineering Testing',
-    'MATLAB', 'Problem-Solving'],
+      { name: "Python", url: "https://www.python.org/about/" },
+      { name: "Java", url: "https://www.oracle.com/java/" },
+      { name: "Web Development", url: "https://developer.mozilla.org/en-US/docs/Learn_web_development" },
+      { name: "Tailwind", url: "https://tailwindcss.com/docs" },
+      { name: "PostgreSQL", url: "https://www.postgresql.org/about/" },
+      { name: "Linux/RHEL", url: "https://www.redhat.com/en/topics/linux" },
+      { name: "Docker", url: "https://www.docker.com/resources/what-container/" },
+      { name: "Azure", url: "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-azure/" },
+      { name: "Machine Learning", url: "https://en.wikipedia.org/wiki/Machine_learning" },
+      { name: "Data Analytics", url: "https://en.wikipedia.org/wiki/Data_analysis" },
+      { name: "CustomTkinter", url: "https://customtkinter.tomschimansky.com/" },
+      { name: "SolidWorks", url: "https://www.solidworks.com/" },
+      { name: "NXCAD", url: "https://plm.sw.siemens.com/en-US/nx/" },
+      { name: "C++", url: "https://isocpp.org/" },
+      { name: "HTML", url: "https://developer.mozilla.org/en-US/docs/Web/HTML" },
+      { name: "Microsoft Office 365", url: "https://www.microsoft.com/microsoft-365" },
+      { name: "Adobe Photoshop", url: "https://www.adobe.com/products/photoshop.html" },
+      { name: "AutoCAD", url: "https://www.autodesk.com/products/autocad/overview" },
+      { name: "CCNA", url: "https://www.cisco.com/site/us/en/learn/training-certifications/certifications/enterprise/ccna/index.html" },
+      { name: "Cybersecurity Fundamentals", url: "https://www.cisa.gov/topics/cybersecurity-best-practices" },
+      { name: "Linux/Unix/Kali", url: "https://www.kali.org/docs/introduction/what-is-kali-linux/" },
+      { name: "Cloud Computing", url: "https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-cloud-computing/" },
+      { name: "CAD Modeling", url: "https://en.wikipedia.org/wiki/Computer-aided_design" },
+      { name: "3D Modeling", url: "https://en.wikipedia.org/wiki/3D_modeling" },
+      { name: "Finite Element Analysis (FEA)", url: "https://en.wikipedia.org/wiki/Finite_element_method" },
+      { name: "Prototype Fabrication", url: "https://en.wikipedia.org/wiki/Prototype" },
+      { name: "Mechanical Design", url: "https://en.wikipedia.org/wiki/Mechanical_engineering_design" },
+      { name: "Systems Integration", url: "https://en.wikipedia.org/wiki/System_integration" },
+      { name: "Technical Documentation", url: "https://en.wikipedia.org/wiki/Technical_documentation" },
+      { name: "Engineering Testing", url: "https://en.wikipedia.org/wiki/Test_engineering" },
+      { name: "MATLAB", url: "https://www.mathworks.com/products/matlab.html" },
+      { name: "Problem-Solving", url: "https://en.wikipedia.org/wiki/Problem_solving" }
+    ],
 
   projects: [
     {
@@ -66,18 +93,14 @@ const data = {
     {
       org: "FICO",
       role: "Part-Time Software Developer",
-      period: "May 2026 – Present",
+      period: "May 2025 – Present",
       points: [
-        "Developing a Generative AI-powered Network Intrusion Detection System (NIDS) to automatically detect suspicious activity and potential cyber threats in network traffic",
-        "Using machine learning and AI models to analyze large cybersecurity datasets, identify attack patterns, and improve threat detection capabilities",
-        "Building an automated pipeline that loads, cleans, and processes network datasets, eliminating the need for manual downloads, file merging, and data preparation",
-        "Implementing data quality checks and deduplication techniques to remove redundant records and improve the accuracy of model training and testing",
-        "Researching and evaluating different machine learning algorithms for anomaly detection, classification, and cybersecurity applications",
-        "Creating tools that allow analysts to quickly ingest and analyze new datasets, reducing hours of manual work and accelerating security research efforts",
-        "Collaborating with FICO's Analytic Science team to develop scalable AI-driven solutions for cybersecurity, fraud detection, and network defense",
+        "Developed a Java and Python-based application to monitor and verify the integrity of missile defense systems",
+        "Utilized Red Hat Enterprise Linux (RHEL) to deploy and manage software in secure, mission-critical environments",
+        "Conducted functional testing and validation to confirm system performance and operational readiness",
+        "Participated in technical briefings and documented application workflows, deployment procedures, and system health checks",
       ],
     },
-    
     {
       org: "Northrop Grumman",
       role: "Part-Time Software Developer",
@@ -190,11 +213,21 @@ const fade = (delay = 0) => ({
   show: { opacity: 1, y: 0, transition: { duration: 0.6, delay } },
 });
 
-const Chip = ({ children }) => (
-  <span className="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium">
-    {children}
-  </span>
-);
+const Chip = ({ children, href }) => {
+  const className =
+    "inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-sm font-medium hover:bg-black/5 dark:hover:bg-white/10";
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={className} title={`Learn about ${children}`}>
+        {children}
+        <ExternalLink className="h-3 w-3 opacity-70" />
+      </a>
+    );
+  }
+
+  return <span className={className}>{children}</span>;
+};
 
 const Section = ({ id, title, children }) => (
   <section id={id} className="max-w-6xl mx-auto px-6 md:px-8 py-16 md:py-24">
@@ -462,16 +495,15 @@ export default function PortfolioSite() {
         {/* About content */}
         <div className="mt-8 grid md:grid-cols-[1.2fr,0.8fr] gap-8">
           <motion.p initial="hidden" whileInView="show" viewport={{ once: true }} variants={fade(0)} className="text-slate-700 dark:text-slate-300 leading-7">
-          I'm Andrew Jackson, a student interested in cybersecurity, AI, and software development. I like building things, solving problems, and figuring out how technology can make life easier. Over the past few years, I've had the chance to work on projects in aerospace, defense, and financial technology, which has helped me learn a lot both inside and outside the classroom. I'm always looking for new opportunities to learn, take on challenges, and keep growing.
+            I'm Andrew, a student who enjoys technology, AI, and cybersecurity. I like building projects, learning new things, and solving problems. Outside of school and work, I enjoy photography, traveling, and taking on new challenges. I'm always looking for opportunities to learn, grow, and make an impact.
           </motion.p>
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fade(0.1)} className="rounded-2xl border p-6">
             <h3 className="font-semibold">Quick Facts</h3>
             <ul className="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
-              <li>🎓 CIS and Mechanical Engineering student; aiming software dev</li>
-              <li>🛰️ Defense & space enthusiast</li>
-              <li>🧠 I love learning new things</li>
-              <li>🌱 Always open to new opportunities</li>
-              <li>📍 Based in Huntsville, AL</li>
+            <li>Technology student with interests in AI, cybersecurity, and software development</li>
+            <li>I've had the opportunity to work with NASA, Northrop Grumman, and FICO</li>
+            <li>I enjoy building projects that make an impact</li>
+            <li>Always looking for the next thing to learn and create</li>
             </ul>
           </motion.div>
         </div>
@@ -577,8 +609,10 @@ export default function PortfolioSite() {
       {/* Skills */}
       <Section id="skills" title="Skills">
         <div className="flex flex-wrap gap-2">
-          {data.skills.map((s) => (
-            <Chip key={s}>{s}</Chip>
+          {data.skills.map((skill) => (
+            <Chip key={skill.name} href={skill.url}>
+              {skill.name}
+            </Chip>
           ))}
         </div>
       </Section>
