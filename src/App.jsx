@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Linkedin, Mail, Download, MapPin, Briefcase, Phone, Camera } from "lucide-react";
+import { ArrowRight, Linkedin, Mail, Download, MapPin, Briefcase, Phone, ExternalLink } from "lucide-react";
 import headshot from "./assets/IMG_7953.jpeg";
 import resumeFile from "./assets/Andrew-Jackson-Resume.pdf";
 
@@ -13,7 +13,7 @@ const data = {
   role: "Software Engineer • AI & Systems Integration",
   location: "Huntsville, AL",
   blurb:
-    "I engineer intelligent systems that serve people — from AI assistants to defense-grade software and predictive, data-driven applications.",
+    "I'm Andrew Jackson, a student studying cybersecurity and technology. I enjoy working with AI, machine learning, and software development to solve real-world problems. Through internships and hands-on projects, I've gained experience in cybersecurity, data analytics, and engineering while continuing to learn and grow in the field.",
   resumeUrl: resumeFile,
 
   socials: [
@@ -62,6 +62,22 @@ const data = {
 
   ],
   experience: [
+
+    {
+      org: "FICO",
+      role: "Part-Time Software Developer",
+      period: "May 2026 – Present",
+      points: [
+        "Developing a Generative AI-powered Network Intrusion Detection System (NIDS) to automatically detect suspicious activity and potential cyber threats in network traffic",
+        "Using machine learning and AI models to analyze large cybersecurity datasets, identify attack patterns, and improve threat detection capabilities",
+        "Building an automated pipeline that loads, cleans, and processes network datasets, eliminating the need for manual downloads, file merging, and data preparation",
+        "Implementing data quality checks and deduplication techniques to remove redundant records and improve the accuracy of model training and testing",
+        "Researching and evaluating different machine learning algorithms for anomaly detection, classification, and cybersecurity applications",
+        "Creating tools that allow analysts to quickly ingest and analyze new datasets, reducing hours of manual work and accelerating security research efforts",
+        "Collaborating with FICO's Analytic Science team to develop scalable AI-driven solutions for cybersecurity, fraud detection, and network defense",
+      ],
+    },
+    
     {
       org: "Northrop Grumman",
       role: "Part-Time Software Developer",
@@ -138,6 +154,32 @@ const data = {
       year: "2024",
     },
   ],
+
+  featuredIn: [
+    {
+      title: "Leaders Magazine – Summer Edition",
+      publication: "leaders.lounge",
+      description:
+      "A leadership-focused publication featuring stories of emerging professionals, " +
+      "students, and community leaders. The magazine highlights achievements, career " +
+      "journeys, leadership development, and the positive impact individuals are making " +
+      "in their communities and industries.",
+      year: "2025",
+      url: "https://issuu.com/chatwithmakingmoveswithpam/docs/leaders_magazine_summer_edition",
+    },
+    {
+      title: "Andrew Jackson, Recipient of Coveted FICO Internship, Shares His Story",
+      publication: "Drake State Community & Technical College",
+      description:
+      "Featured by Drake State Community & Technical College, this article highlights " +
+      "my academic journey, success in the FICO Data Analytics Challenge, and selection " +
+      "for a competitive FICO internship in San Diego. It discusses my interests in " +
+      "cybersecurity, artificial intelligence, and data analytics, as well as the mentors " +
+      "and opportunities that helped shape my career path.",
+      year: "2026",
+      url: "https://drakestate.edu/andrew-jackson-recipient-of-coveted-fico-internship-shares-his-story/",
+    },
+  ],
 };
 
 
@@ -175,9 +217,64 @@ const NavLink = ({ href, label }) => (
   </a>
 );
 
+const ShowcaseCarousel = ({ items, currentIndex, setCurrentIndex, renderItem }) => {
+  const maxIndex = Math.max(items.length - 3, 0);
+
+  return (
+    <div className="relative">
+      <motion.div className="overflow-hidden">
+        <div
+          className="flex gap-6 transition-transform duration-500"
+          style={{ transform: `translateX(-${currentIndex * 33.333}%)` }}
+        >
+          {items.map((item, i) => (
+            <div
+              key={`${item.title}-${i}`}
+              className="min-w-[33.333%] rounded-2xl border p-6 bg-gradient-to-br from-black via-slate-800 to-slate-900"
+            >
+              {renderItem(item)}
+            </div>
+          ))}
+        </div>
+      </motion.div>
+
+      <div className="flex justify-between mt-6">
+        <button
+          onClick={() => setCurrentIndex((i) => Math.max(i - 1, 0))}
+          disabled={currentIndex === 0}
+          className="rounded-xl border px-4 py-2 text-sm hover:bg-white/10 disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          Prev
+        </button>
+        <button
+          onClick={() => setCurrentIndex((i) => Math.min(i + 1, maxIndex))}
+          disabled={currentIndex === maxIndex}
+          className="rounded-xl border px-4 py-2 text-sm hover:bg-white/10 disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          Next
+        </button>
+      </div>
+
+      <div className="flex justify-center gap-2 mt-4">
+        {Array.from({ length: maxIndex + 1 }).map((_, idx) => (
+          <button
+            key={idx}
+            type="button"
+            aria-label={`Show slide ${idx + 1}`}
+            onClick={() => setCurrentIndex(idx)}
+            className={`h-2 w-2 rounded-full cursor-pointer ${idx === currentIndex ? "bg-white" : "bg-white/30"
+              }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default function PortfolioSite() {
   const [theme, setTheme] = useState("dark");
   const [currentAwardIndex, setCurrentAwardIndex] = useState(0);
+  const [currentFeaturedIndex, setCurrentFeaturedIndex] = useState(0);
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
   const FORMSPREE_ENDPOINT = "https://formspree.io/f/mzzvygrr"; // <-- replace with your Formspree form ID
 
@@ -234,6 +331,7 @@ export default function PortfolioSite() {
             <NavLink href="#about" label="About" />
             <NavLink href="#experience" label="Experience" />
             <NavLink href="#awards" label="Awards" />
+            <NavLink href="#featured-in" label="Featured In" />
             <NavLink href="#projects" label="Projects" />
             <NavLink href="#skills" label="Skills" />
             <NavLink href="#contact" label="Contact" />
@@ -403,53 +501,45 @@ export default function PortfolioSite() {
 
       {/* Awards */}
       <Section id="awards" title="Awards & Honors">
-        <div className="relative">
-          <motion.div className="overflow-hidden">
-            <div
-              className="flex gap-6 transition-transform duration-500"
-              style={{ transform: `translateX(-${currentAwardIndex * 33.333}%)` }}
-            >
-              {data.awards.map((award, i) => (
-                <div
-                  key={i}
-                  className="min-w-[33.333%] rounded-2xl border p-6 bg-gradient-to-br from-black via-slate-800 to-slate-900"
+        <ShowcaseCarousel
+          items={data.awards}
+          currentIndex={currentAwardIndex}
+          setCurrentIndex={setCurrentAwardIndex}
+          renderItem={(award) => (
+            <>
+              <h3 className="text-lg font-semibold leading-tight">{award.title}</h3>
+              <p className="mt-2 text-sm text-slate-300">{award.description}</p>
+              <p className="mt-3 text-xs font-medium text-slate-400">Year: {award.year}</p>
+            </>
+          )}
+        />
+      </Section>
+
+      {/* Featured In */}
+      <Section id="featured-in" title="Featured In">
+        <ShowcaseCarousel
+          items={data.featuredIn}
+          currentIndex={currentFeaturedIndex}
+          setCurrentIndex={setCurrentFeaturedIndex}
+          renderItem={(feature) => (
+            <>
+              <p className="text-xs font-medium uppercase tracking-widest text-slate-400">{feature.publication}</p>
+              <h3 className="mt-2 text-lg font-semibold leading-tight">{feature.title}</h3>
+              <p className="mt-2 text-sm text-slate-300">{feature.description}</p>
+              <div className="mt-4 flex items-center justify-between gap-4">
+                <p className="text-xs font-medium text-slate-400">Year: {feature.year}</p>
+                <a
+                  href={feature.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm underline decoration-dotted hover:text-blue-300"
                 >
-                  <h3 className="text-lg font-semibold leading-tight">{award.title}</h3>
-                  <p className="mt-2 text-sm text-slate-300">{award.description}</p>
-                  <p className="mt-3 text-xs font-medium text-slate-400">Year: {award.year}</p>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Navigation */}
-          <div className="flex justify-between mt-6">
-            <button
-              onClick={() => setCurrentAwardIndex((i) => Math.max(i - 1, 0))}
-              className="rounded-xl border px-4 py-2 text-sm hover:bg-white/10"
-            >
-              Prev
-            </button>
-            <button
-              onClick={() => setCurrentAwardIndex((i) => Math.min(i + 1, data.awards.length - 3))}
-              className="rounded-xl border px-4 py-2 text-sm hover:bg-white/10"
-            >
-              Next
-            </button>
-          </div>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-4">
-            {Array.from({ length: data.awards.length - 2 }).map((_, idx) => (
-              <div
-                key={idx}
-                onClick={() => setCurrentAwardIndex(idx)}
-                className={`h-2 w-2 rounded-full cursor-pointer ${idx === currentAwardIndex ? "bg-white" : "bg-white/30"
-                  }`}
-              />
-            ))}
-          </div>
-        </div>
+                  Read <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </>
+          )}
+        />
       </Section>
 
 
