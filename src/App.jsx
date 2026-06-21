@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Linkedin, Mail, Download, MapPin, Briefcase, Phone, ExternalLink } from "lucide-react";
-import headshot from "./assets/IMG_7953.jpeg";
+import headshot from "./assets/Headshot.jpeg";
 import resumeFile from "./assets/Andrew-Jackson-Resume.pdf";
 
 
@@ -462,7 +462,7 @@ export default function PortfolioSite() {
         {/* About content */}
         <div className="mt-8 grid md:grid-cols-[1.2fr,0.8fr] gap-8">
           <motion.p initial="hidden" whileInView="show" viewport={{ once: true }} variants={fade(0)} className="text-slate-700 dark:text-slate-300 leading-7">
-            I’m Andrew — a software developer and engineer who loves building tools that blend clean design with real impact. My background spans backend, frontend, and machine learning, and I enjoy solving problems with a mix of creativity and precision. Outside of code, I’m a photographer with an eye for detail, a motorcycle enthusiast always chasing new adventures, and a campus leader dedicated to community and growth. I thrive on learning, building, and leaving things better than I found them.
+          I'm Andrew Jackson, a student interested in cybersecurity, AI, and software development. I like building things, solving problems, and figuring out how technology can make life easier. Over the past few years, I've had the chance to work on projects in aerospace, defense, and financial technology, which has helped me learn a lot both inside and outside the classroom. I'm always looking for new opportunities to learn, take on challenges, and keep growing.
           </motion.p>
           <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fade(0.1)} className="rounded-2xl border p-6">
             <h3 className="font-semibold">Quick Facts</h3>
