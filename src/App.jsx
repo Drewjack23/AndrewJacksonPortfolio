@@ -24,7 +24,7 @@ const data = {
   highlights: [
     "Northrop Grumman — missile defense tools (RHEL, networking)",
     "NASA MSFC — additive manufacturing + automation",
-    "FICO Analytics Challenge — 3rd nationally (fraud AI)",
+    "FICO Analytics Challenge — 3rd nationally (Generative AI)",
   ],
   
   skills: [
@@ -77,6 +77,22 @@ const data = {
         "Lifestyle app that tracks sobriety milestones alongside health habits; includes nutrition logging, fitness tracking, journaling, and progress dashboards.",
       tags: ["React", "Recharts", "Wellness"],
       links: [{ label: "Overview", url: "#" }],
+    },
+
+    {
+      title: "Fraud Detection Model — FICO Data Analytics Challenge",
+      description:
+        "Developed a machine learning fraud detection model using advanced data analytics techniques. Competed nationally in the FICO Data Analytics Challenge and placed 4th overall. Focused on improving prediction accuracy, feature engineering, and explainability of the model.",
+      tags: ["Python", "Machine Learning", "Data Analytics", "Fraud Detection"],
+      links: [{ label: "Overview", url: "https://www.linkedin.com/posts/andrew-jackson-059134297_grateful-to-share-that-on-thursday-night-activity-7321968972147417088-V4Ph?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEe-ikUBRXZrjNv2Tg4UMZLuAudmasIfx-w" }],
+    },
+
+    {
+      title: "Fraud Detection Model — FICO Data Analytics Challenge",
+      description:
+        "Developed a machine learning fraud detection model using advanced data analytics techniques. Competed nationally in the FICO Data Analytics Challenge and placed 4th overall. Focused on improving prediction accuracy, feature engineering, and explainability of the model.",
+      tags: ["Python", "Machine Learning", "Data Analytics", "Fraud Detection"],
+      links: [{ label: "Overview", url: "https://www.linkedin.com/posts/andrew-jackson-059134297_grateful-to-share-that-on-thursday-night-activity-7321968972147417088-V4Ph?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEe-ikUBRXZrjNv2Tg4UMZLuAudmasIfx-w" }],
     },
 
     {
@@ -251,19 +267,19 @@ const NavLink = ({ href, label }) => (
 );
 
 const ShowcaseCarousel = ({ items, currentIndex, setCurrentIndex, renderItem }) => {
-  const maxIndex = Math.max(items.length - 3, 0);
+  const maxIndex = Math.max(items.length - 1, 0);
 
   return (
     <div className="relative">
       <motion.div className="overflow-hidden">
         <div
           className="flex gap-6 transition-transform duration-500"
-          style={{ transform: `translateX(-${currentIndex * 33.333}%)` }}
+          style={{ transform: `translateX(-${(currentIndex * 100) / items.length}%)` }}
         >
           {items.map((item, i) => (
             <div
               key={`${item.title}-${i}`}
-              className="min-w-[33.333%] rounded-2xl border p-6 bg-gradient-to-br from-black via-slate-800 to-slate-900"
+              className="w-full flex-shrink-0 md:w-1/2 lg:w-1/3 rounded-2xl border p-6 bg-gradient-to-br from-black via-slate-800 to-slate-900"
             >
               {renderItem(item)}
             </div>
@@ -307,6 +323,7 @@ const ShowcaseCarousel = ({ items, currentIndex, setCurrentIndex, renderItem }) 
 export default function PortfolioSite() {
   const [theme, setTheme] = useState("dark");
   const [currentAwardIndex, setCurrentAwardIndex] = useState(0);
+  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   const [currentFeaturedIndex, setCurrentFeaturedIndex] = useState(0);
   const [status, setStatus] = useState("idle"); // idle | loading | success | error
   const FORMSPREE_ENDPOINT = "https://formspree.io/f/mzzvygrr"; // <-- replace with your Formspree form ID
@@ -577,18 +594,14 @@ export default function PortfolioSite() {
 
       {/* Projects */}
       <Section id="projects" title="Projects">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.projects.map((proj, i) => (
-            <motion.article
-              key={i}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fade(i * 0.05)}
-              className="group rounded-2xl border p-6 hover:translate-y-[-2px] transition-transform"
-            >
-              <h3 className="text-lg font-semibold leading-tight">{proj.title}</h3>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{proj.description}</p>
+        <ShowcaseCarousel
+          items={data.projects}
+          currentIndex={currentProjectIndex}
+          setCurrentIndex={setCurrentProjectIndex}
+          renderItem={(proj) => (
+            <>
+              <h3 className="text-lg font-semibold leading-tight text-white">{proj.title}</h3>
+              <p className="mt-2 text-sm text-slate-300">{proj.description}</p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {proj.tags.map((t) => (
                   <Chip key={t}>{t}</Chip>
@@ -596,14 +609,14 @@ export default function PortfolioSite() {
               </div>
               <div className="mt-4 flex flex-wrap gap-3">
                 {proj.links?.map((l, idx) => (
-                  <a key={idx} href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm underline decoration-dotted">
+                  <a key={idx} href={l.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm underline decoration-dotted text-slate-300 hover:text-blue-300">
                     {l.label}
                   </a>
                 ))}
               </div>
-            </motion.article>
-          ))}
-        </div>
+            </>
+          )}
+        />
       </Section>
 
       {/* Skills */}
