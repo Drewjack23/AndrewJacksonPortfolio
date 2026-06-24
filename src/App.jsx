@@ -22,8 +22,8 @@ const data = {
     { label: "Call", url: "tel:2566043089", icon: Phone },
   ],
   highlights: [
-    "Northrop Grumman — missile defense tools (RHEL, networking)",
-    "NASA MSFC — additive manufacturing + automation",
+    "National Space Club - HSV 2025 Recipent",
+    "CSSC - Six Sigma Black Belt Certified",
     "FICO Analytics Challenge — 3rd nationally (Generative AI)",
   ],
   
