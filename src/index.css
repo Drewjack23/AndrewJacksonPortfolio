@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700;800&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,7 +7,7 @@
 @layer base {
   :root {
     color-scheme: dark;
-    font-family: "Aptos", "Inter", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "EB Garamond", Georgia, "Times New Roman", Times, serif;
     background: #020617;
   }
 
@@ -16,18 +18,19 @@
   body {
     margin: 0;
     min-width: 320px;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    font-feature-settings: "kern", "liga";
     text-rendering: geometricPrecision;
     background:
-      radial-gradient(circle at 15% 0%, rgba(34, 211, 238, 0.14), transparent 32rem),
-      radial-gradient(circle at 85% 10%, rgba(168, 85, 247, 0.14), transparent 34rem),
+      radial-gradient(circle at 15% 0%, rgba(76, 29, 149, 0.22), transparent 32rem),
+      radial-gradient(circle at 85% 10%, rgba(49, 46, 129, 0.2), transparent 34rem),
       #020617;
   }
 
   h1,
   h2,
   h3 {
-    font-family: "Aptos Display", "Inter", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: "EB Garamond", Georgia, "Times New Roman", Times, serif;
+    letter-spacing: 0.01em;
   }
 
   * {
@@ -39,8 +42,8 @@
   .hero-surface {
     background:
       linear-gradient(115deg, rgba(2, 6, 23, 0.72), rgba(15, 23, 42, 0.86)),
-      radial-gradient(circle at 72% 24%, rgba(34, 211, 238, 0.2), transparent 24rem),
-      radial-gradient(circle at 18% 78%, rgba(168, 85, 247, 0.16), transparent 28rem);
+      radial-gradient(circle at 72% 24%, rgba(91, 33, 182, 0.28), transparent 24rem),
+      radial-gradient(circle at 18% 78%, rgba(49, 46, 129, 0.22), transparent 28rem);
   }
 
   .hero-surface::before {
@@ -63,7 +66,7 @@
 
   .section-eyebrow {
     margin-bottom: 0.75rem;
-    color: #67e8f9;
+    color: #a78bfa;
     font-size: 0.76rem;
     font-weight: 800;
     letter-spacing: 0.22em;
@@ -79,7 +82,7 @@
   .section-heading h2 {
     color: #fff;
     font-size: clamp(2rem, 4vw, 3.75rem);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.02;
   }
 
@@ -106,7 +109,7 @@
     width: 18rem;
     aspect-ratio: 1;
     border-radius: 999px;
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.24), transparent 68%);
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.28), transparent 68%);
     filter: blur(2px);
   }
 
@@ -125,11 +128,11 @@
     inset: 0 auto 0 0;
     width: 3px;
     content: "";
-    background: linear-gradient(to bottom, #22d3ee, #a78bfa);
+    background: linear-gradient(to bottom, #4c1d95, #7c3aed);
   }
 
   .experience-card:hover {
-    border-color: rgba(103, 232, 249, 0.38);
+    border-color: rgba(124, 58, 237, 0.42);
     background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.66));
     transform: translateY(-2px);
   }
@@ -150,8 +153,95 @@
   }
 
   .form-field:focus {
-    border-color: rgba(103, 232, 249, 0.72);
+    border-color: rgba(124, 58, 237, 0.72);
     background: rgba(2, 6, 23, 0.82);
-    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.12);
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.14);
   }
+}
+
+html[data-theme="light"] {
+  color-scheme: light;
+  background: #fafaf9;
+}
+
+html[data-theme="light"] body {
+  background:
+    radial-gradient(circle at 12% 0%, rgba(76, 29, 149, 0.08), transparent 30rem),
+    radial-gradient(circle at 88% 10%, rgba(49, 46, 129, 0.08), transparent 32rem),
+    #fafaf9;
+}
+
+html[data-theme="light"] .site-root {
+  background: #fafaf9;
+  color: #1c1917;
+}
+
+html[data-theme="light"] header,
+html[data-theme="light"] footer {
+  border-color: rgba(68, 64, 60, 0.16);
+  background: rgba(250, 250, 249, 0.86);
+}
+
+html[data-theme="light"] .hero-surface {
+  background:
+    linear-gradient(115deg, rgba(250, 250, 249, 0.82), rgba(245, 245, 244, 0.94)),
+    radial-gradient(circle at 72% 24%, rgba(91, 33, 182, 0.12), transparent 24rem),
+    radial-gradient(circle at 18% 78%, rgba(49, 46, 129, 0.1), transparent 28rem);
+}
+
+html[data-theme="light"] .section-heading h2,
+html[data-theme="light"] .site-root .text-white,
+html[data-theme="light"] .site-root .text-slate-100,
+html[data-theme="light"] .site-root .text-slate-200 {
+  color: #1c1917;
+}
+
+html[data-theme="light"] .section-heading p,
+html[data-theme="light"] .site-root .text-slate-300,
+html[data-theme="light"] .site-root .text-slate-400 {
+  color: #57534e;
+}
+
+html[data-theme="light"] .site-root .text-violet-100,
+html[data-theme="light"] .site-root .text-violet-200,
+html[data-theme="light"] .site-root .text-violet-400,
+html[data-theme="light"] .section-eyebrow {
+  color: #4c1d95;
+}
+
+html[data-theme="light"] .site-root .bg-violet-700,
+html[data-theme="light"] .site-root .bg-violet-700.text-white {
+  background-color: #4c1d95;
+  color: #fff;
+}
+
+html[data-theme="light"] .site-root .bg-slate-950,
+html[data-theme="light"] .site-root .bg-slate-900,
+html[data-theme="light"] .site-root .bg-slate-900\/70,
+html[data-theme="light"] .site-root .bg-slate-950\/40 {
+  background-color: rgba(255, 255, 255, 0.76);
+}
+
+html[data-theme="light"] .site-root [class*="bg-white/"],
+html[data-theme="light"] .profile-panel,
+html[data-theme="light"] .experience-card {
+  background: rgba(255, 255, 255, 0.72);
+}
+
+html[data-theme="light"] .site-root [class*="border-white"] {
+  border-color: rgba(68, 64, 60, 0.16);
+}
+
+html[data-theme="light"] .profile-panel {
+  box-shadow: 0 24px 70px rgba(68, 64, 60, 0.12);
+}
+
+html[data-theme="light"] .form-field {
+  border-color: rgba(68, 64, 60, 0.18);
+  background: rgba(255, 255, 255, 0.82);
+  color: #1c1917;
+}
+
+html[data-theme="light"] .form-field::placeholder {
+  color: #78716c;
 }
