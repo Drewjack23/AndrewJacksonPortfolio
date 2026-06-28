@@ -1,3 +1,157 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    font-family: "Aptos", "Inter", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #020617;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: geometricPrecision;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(34, 211, 238, 0.14), transparent 32rem),
+      radial-gradient(circle at 85% 10%, rgba(168, 85, 247, 0.14), transparent 34rem),
+      #020617;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Aptos Display", "Inter", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .hero-surface {
+    background:
+      linear-gradient(115deg, rgba(2, 6, 23, 0.72), rgba(15, 23, 42, 0.86)),
+      radial-gradient(circle at 72% 24%, rgba(34, 211, 238, 0.2), transparent 24rem),
+      radial-gradient(circle at 18% 78%, rgba(168, 85, 247, 0.16), transparent 28rem);
+  }
+
+  .hero-surface::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.055) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: linear-gradient(to bottom, black, transparent 88%);
+  }
+
+  .section-shell {
+    width: min(100% - 2.5rem, 72rem);
+    margin-inline: auto;
+    padding-block: clamp(4rem, 7vw, 6.5rem);
+  }
+
+  .section-eyebrow {
+    margin-bottom: 0.75rem;
+    color: #67e8f9;
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  .section-heading {
+    display: grid;
+    gap: 1rem;
+    max-width: 58rem;
+  }
+
+  .section-heading h2 {
+    color: #fff;
+    font-size: clamp(2rem, 4vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.02;
+  }
+
+  .section-heading p {
+    max-width: 46rem;
+    color: #cbd5e1;
+    font-size: clamp(1rem, 1.6vw, 1.12rem);
+    line-height: 1.8;
+  }
+
+  .profile-panel {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.75rem;
+    background: rgba(15, 23, 42, 0.7);
+    padding: 1rem;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+  }
+
+  .profile-orbit {
+    position: absolute;
+    inset: -22% -22% auto auto;
+    width: 18rem;
+    aspect-ratio: 1;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.24), transparent 68%);
+    filter: blur(2px);
+  }
+
+  .experience-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.82), rgba(15, 23, 42, 0.52));
+    padding: clamp(1.25rem, 3vw, 2rem);
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  }
+
+  .experience-card::before {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    content: "";
+    background: linear-gradient(to bottom, #22d3ee, #a78bfa);
+  }
+
+  .experience-card:hover {
+    border-color: rgba(103, 232, 249, 0.38);
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.66));
+    transform: translateY(-2px);
+  }
+
+  .form-field {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.5rem;
+    background: rgba(2, 6, 23, 0.58);
+    padding: 0.8rem 0.95rem;
+    color: #f8fafc;
+    outline: none;
+    transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  }
+
+  .form-field::placeholder {
+    color: #64748b;
+  }
+
+  .form-field:focus {
+    border-color: rgba(103, 232, 249, 0.72);
+    background: rgba(2, 6, 23, 0.82);
+    box-shadow: 0 0 0 4px rgba(34, 211, 238, 0.12);
+  }
+}
