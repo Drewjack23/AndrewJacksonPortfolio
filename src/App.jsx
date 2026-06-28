@@ -10,7 +10,7 @@ import resumeFile from "./assets/Andrew-Jackson-Resume.pdf";
 // ——————————————————————————————————————————
 const data = {
   name: "Andrew Jackson",
-  role: "Software Engineer • AI & Systems Integration",
+  role: "Software Engineer • AI & Systems Automation Specialist",
   location: "Huntsville, AL",
   blurb:
     "I engineer intelligent systems that serve people — from AI assistants to defense-grade software and predictive, data-driven applications.",
