@@ -24,7 +24,7 @@ import resumeFile from "./assets/Andrew-Jackson-Resume.pdf";
 
 const data = {
   name: "Andrew Jackson",
-  role: "FICO Analytic Science Intern | Cybersecurity, AI/ML & Software Engineering",
+  role: "FICO Data Science Intern | Cybersecurity, AI/ML & Software Engineering",
   location: "Huntsville, AL",
   blurb:
     "I build data-driven, secure, and human-centered systems across fraud analytics, cybersecurity research, AI assistants, web products, and aerospace engineering design.",
@@ -35,7 +35,7 @@ const data = {
     { label: "Call", url: "tel:2566043089", icon: Phone },
   ],
   highlights: [
-    "FICO Analytic Science Intern focused on fraud analytics and applied modeling",
+    "FICO Data Science Intern focused on large-scale cybersecurity data and applied modeling",
     "Cybersecurity, AI/ML, data analytics, React, Python, Java, and engineering design",
     "National recognition through FICO analytics work, NASA programs, and STEM leadership",
   ],
@@ -80,11 +80,11 @@ const data = {
   ],
   projects: [
     {
-      title: "VHS-22 Network Intrusion Detection EDA",
+      title: "Machine Learning Network Intrusion Detection",
       description:
-        "Exploratory cybersecurity analysis focused on network intrusion patterns, suspicious traffic behavior, and practical signals for detection workflows.",
-      tags: ["Cybersecurity", "EDA", "Python", "Network Traffic"],
-      impact: "Built analytical intuition around intrusion indicators and security-focused data storytelling.",
+        "Exploratory analysis on a 27.7-million-record cybersecurity dataset to surface data quality issues, leakage risks, and predictive intrusion signals.",
+      tags: ["Cybersecurity", "EDA", "Python", "Scikit-learn"],
+      impact: "Developed preprocessing pipelines and feature-importance analysis for baseline intrusion detection models.",
     },
     {
       title: "Fraud Detection Model - FICO Data Analytics Challenge",
@@ -124,52 +124,44 @@ const data = {
   experience: [
     {
       org: "FICO",
-      role: "Analytic Science Intern",
-      period: "2026",
+      role: "Data Science Intern",
+      period: "May 2026 - August 2026",
       points: [
-        "Applying data analytics and modeling concepts to fraud, risk, and decision intelligence problems.",
-        "Working across Python-based analysis, model evaluation, and clear communication of technical findings.",
-        "Building on national FICO Analytics Challenge experience in fraud detection and explainable modeling.",
+        "Conducted exploratory data analysis on a 27.7-million-row network intrusion dataset to identify data quality issues, feature relationships, and potential data leakage.",
+        "Built preprocessing pipelines with Python, Pandas, NumPy, and Scikit-learn to prepare large-scale cybersecurity datasets for machine learning.",
+        "Evaluated feature importance with statistical analysis, correlation analysis, and tree-based models to improve baseline model performance.",
+        "Presented technical findings and recommendations during weekly project reviews with cross-functional stakeholders.",
       ],
     },
     {
       org: "Northrop Grumman",
-      role: "Part-Time Software Developer",
-      period: "May 2025 - Present",
+      role: "Software Engineering Intern",
+      period: "June 2025 - May 2026",
       points: [
-        "Developed Java and Python software supporting secure, mission-focused system monitoring workflows.",
-        "Used Red Hat Enterprise Linux to deploy, test, and manage software in controlled technical environments.",
-        "Conducted functional validation and documented workflows, deployment procedures, and system health checks.",
+        "Developed Java and Python applications supporting defense software initiatives across multiple sprint cycles.",
+        "Increased automated unit test coverage from approximately 20% to over 80%, improving release reliability.",
+        "Resolved SonarQube static analysis findings to strengthen code quality and reduce technical debt.",
+        "Participated in Agile sprint planning, testing, debugging, and peer code reviews within a cross-functional engineering team.",
       ],
     },
     {
       org: "NASA - Marshall Space Flight Center",
-      role: "Technician Intern",
-      period: "September 2024 - Present",
+      role: "Engineering Intern",
+      period: "August 2024 - September 2025",
       points: [
-        "Designed and optimized mechanical components for aerospace applications using SolidWorks, NX CAD, and Creo.",
-        "Supported design, analysis, prototype fabrication, assembly, and testing in lab environments.",
-        "Documented findings and presented technical reports to engineers and project leads.",
-      ],
-    },
-    {
-      org: "FICO Analytics Challenge",
-      role: "Analytics Scientist I",
-      period: "January 2025 - May 2025",
-      points: [
-        "Analyzed financial datasets to develop predictive models for credit and fraud risk assessment.",
-        "Used Pandas, NumPy, Scikit-learn, Matplotlib, and Seaborn for processing, modeling, and visualization.",
-        "Evaluated credit scoring factors including payment history, debt-to-income ratio, and utilization.",
+        "Designed mechanical components using SolidWorks and Siemens NX to support engineering development projects.",
+        "Supported prototype fabrication, testing, and validation to verify design performance against requirements.",
+        "Presented engineering recommendations to project stakeholders based on testing and validation results.",
       ],
     },
     {
       org: "NASA - Tuskegee University",
-      role: "MUREP Program Intern",
-      period: "May 2024 - July 2024",
+      role: "Research Assistant",
+      period: "Summer 2024",
       points: [
-        "Contributed to 3D concrete printing research in partnership with NASA MUREP.",
-        "Performed tensile tests with an Instron machine and analyzed stress and strain behavior.",
-        "Presented project results to NASA MUREP officers after research, testing, and documentation work.",
+        "Performed data analysis and materials testing in support of NASA-affiliated research initiatives.",
+        "Delivered technical presentations summarizing research findings to faculty and NASA collaborators.",
+        "Collaborated with university researchers and NASA personnel to advance ongoing research objectives.",
       ],
     },
   ],
