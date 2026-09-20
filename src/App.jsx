@@ -80,6 +80,14 @@ const data = {
   ],
   projects: [
     {
+      title: "Valley Indoor Percussion — Organization Website",
+      description:
+        "Full-stack Next.js site built for a competitive indoor percussion organization, covering public marketing pages, online audition registration, and a members-only portal.",
+      tags: ["Next.js", "TypeScript", "Stripe", "Supabase", "Clerk"],
+      impact:
+        "Built Stripe Checkout for audition payments, Supabase-backed storage for private audition packets with signed-URL delivery, Resend email confirmations, and a Clerk-protected member/admin area.",
+    },
+    {
       title: "Machine Learning Network Intrusion Detection",
       description:
         "Exploratory analysis on a 27.7-million-record cybersecurity dataset to surface data quality issues, leakage risks, and predictive intrusion signals.",
