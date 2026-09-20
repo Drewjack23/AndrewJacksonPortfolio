@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   Award,
+  BadgeCheck,
   Briefcase,
   ChevronUp,
   Code2,
@@ -79,6 +80,14 @@ const data = {
     { name: "Adobe Photoshop", category: "Professional Tools", url: "https://www.adobe.com/products/photoshop.html" },
   ],
   projects: [
+    {
+      title: "Valley Indoor Percussion — Organization Website",
+      description:
+        "Full-stack Next.js site built for a competitive indoor percussion organization, covering public marketing pages, online audition registration, and a members-only portal.",
+      tags: ["Next.js", "TypeScript", "Stripe", "Supabase", "Clerk"],
+      impact:
+        "Built Stripe Checkout for audition payments, Supabase-backed storage for private audition packets with signed-URL delivery, Resend email confirmations, and a Clerk-protected member/admin area.",
+    },
     {
       title: "Machine Learning Network Intrusion Detection",
       description:
@@ -192,6 +201,63 @@ const data = {
       year: "2024",
     },
   ],
+  certifications: [
+    {
+      title: "C++ Essentials 2",
+      issuer: "Cisco",
+      date: "Sep 2026",
+      url: "https://www.credly.com/badges/d7b7a257-ca46-4069-bca6-2ef6f7968070",
+    },
+    {
+      title: "Introduction to Cybersecurity",
+      issuer: "Cisco",
+      date: "Sep 2026",
+      url: "http://credly.com/badges/d3613deb-86f7-4787-bc90-ac4632952b66",
+    },
+    {
+      title: "Endpoint Security",
+      issuer: "Cisco",
+      date: "Sep 2026",
+      url: "https://www.credly.com/badges/2552b002-c033-4a28-a5e6-53e0c73cd09f",
+    },
+    {
+      title: "C++ Essentials 1",
+      issuer: "Cisco",
+      date: "Sep 2026",
+      url: "https://www.credly.com/badges/e8500951-dd16-4e2d-945d-112c5d8f39d3",
+    },
+    {
+      title: "Introduction to Greenhouse Gas Accounting for IT",
+      issuer: "Cisco",
+      date: "Sep 2026",
+      url: "https://www.credly.com/earner/earned/badge/3bf71c67-ce16-44e5-8924-4229752211a1",
+    },
+    {
+      title: "OSHA 10-Hour",
+      issuer: "OSHA Safety Training Institute",
+      date: "May 2026",
+    },
+    {
+      title: "Six Sigma Master Black Belt",
+      issuer: "The Council for Six Sigma Certification (CSSC)",
+      date: "Aug 2025",
+    },
+    {
+      title: "Lean Six Sigma Green Belt",
+      issuer: "The Council for Six Sigma Certification (CSSC)",
+      date: "Aug 2025",
+    },
+    {
+      title: "Six Sigma Yellow Belt",
+      issuer: "The Council for Six Sigma Certification (CSSC)",
+      date: "Aug 2025",
+    },
+    {
+      title: "Six Sigma White Belt",
+      issuer: "The Council for Six Sigma Certification (CSSC)",
+      date: "Aug 2025",
+    },
+  ],
   featuredIn: [
     {
       title: "Leaders Magazine - Summer Edition",
@@ -223,6 +289,7 @@ const navItems = [
   ["#projects", "Projects"],
   ["#skills", "Skills"],
   ["#awards", "Awards"],
+  ["#certifications", "Certifications"],
   ["#contact", "Contact"],
 ];
 
@@ -655,6 +722,48 @@ function PortfolioSite() {
                 </motion.article>
               ))}
             </div>
+          </div>
+        </Section>
+
+        <Section
+          id="certifications"
+          eyebrow="Certifications"
+          title="Licenses and certifications."
+          intro="Credentials earned across cybersecurity, software, and process improvement."
+        >
+          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            {data.certifications.map((cert, index) => (
+              <motion.article
+                key={cert.title}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={fade(index * 0.04)}
+                className="rounded-lg border border-white/10 bg-white/[0.04] p-5"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="flex h-10 w-10 flex-none items-center justify-center rounded-lg bg-violet-300/10 text-violet-200">
+                    <BadgeCheck className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-white">{cert.title}</h3>
+                    <p className="mt-1 text-sm text-slate-300">{cert.issuer}</p>
+                    <p className="mt-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-400">Issued {cert.date}</p>
+                    {cert.url && (
+                      <a
+                        href={cert.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-violet-200 transition hover:text-white"
+                      >
+                        Show credential
+                        <ExternalLink className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </motion.article>
+            ))}
           </div>
         </Section>
 
