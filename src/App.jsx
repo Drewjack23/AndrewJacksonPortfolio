@@ -275,6 +275,14 @@ const data = {
       year: "2026",
       url: "https://drakestate.edu/andrew-jackson-recipient-of-coveted-fico-internship-shares-his-story/",
     },
+    {
+      title: "Is Your Intrusion Detector Learning Attacks or Just the Dataset?",
+      publication: "Medium",
+      description:
+        "A write-up on evaluating machine learning models for network intrusion detection on the VHS-22 dataset, showing how a standard random train/test split hides source leakage and inflates model performance compared to a source-holdout evaluation.",
+      year: "2026",
+      url: "https://medium.com/@andrewth848/3a682ff6bb1f?sharedUserId=andrewth848",
+    },
   ],
 };
 
